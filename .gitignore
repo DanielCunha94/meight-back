@@ -1,0 +1,22 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+.*.swp
+.air.toml
+
+# Test binary, built with `go test -c`
+*.test
+
+# Go workspace file
+go.work
+
+# Dev environment
+.idea/
+.vscode/
+.env
+
+# Mac
+.DS_Store
