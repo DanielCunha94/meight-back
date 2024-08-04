@@ -86,6 +86,8 @@ func (api API) handleUpdateOrderObservations(ctx *gin.Context) {
 
 	}
 
+	ctx.JSON(http.StatusOK, gin.H{"id": id})
+
 }
 
 func (api API) handleCompleteOrder(ctx *gin.Context) {
@@ -94,6 +96,6 @@ func (api API) handleCompleteOrder(ctx *gin.Context) {
 	if err != nil {
 		_ = ctx.Error(err)
 		return
-
 	}
+	ctx.JSON(http.StatusOK, gin.H{"id": id})
 }
