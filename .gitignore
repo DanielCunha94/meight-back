@@ -20,3 +20,5 @@ go.work
 
 # Mac
 .DS_Store
+
+gorm.db

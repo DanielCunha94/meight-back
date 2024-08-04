@@ -1,0 +1,7 @@
+Meight back solution
+
+to run :
+1-  docker build -t meight-backend .
+2-  docker run -p 8080:8080 meight-backend
+
+
