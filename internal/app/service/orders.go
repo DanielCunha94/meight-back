@@ -31,7 +31,7 @@ func (a *Aggregator) CompleteOrder(orderID string) error {
 			return err
 		}
 
-		assignment.ReleaseCapacity(order.Weight)
+		assignment.SubtractFromCurrentCapacity(order.Weight)
 
 		err = a.repo.UpdateAssignment(assignment)
 		if err != nil {

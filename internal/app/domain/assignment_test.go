@@ -85,3 +85,19 @@ func TestAssignment_Validate(t *testing.T) {
 		})
 	}
 }
+
+func TestAssignment_SubtractFromCurrentCapacity(t *testing.T) {
+	assignment := &Assignment{
+		Date:                  "2024-08-05",
+		Plate:                 "XYZ123",
+		Orders:                []*Order{{}, {}},
+		MaxWeightCapacity:     100.0,
+		CurrentWeightCapacity: 50.0,
+	}
+
+	assignment.SubtractFromCurrentCapacity(10.0)
+	assert.Equal(t, 40.0, assignment.CurrentWeightCapacity)
+
+	assignment.SubtractFromCurrentCapacity(5.0)
+	assert.Equal(t, 35.0, assignment.CurrentWeightCapacity)
+}

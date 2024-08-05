@@ -37,6 +37,6 @@ func (a *Assignment) Validate() error {
 	return nil
 }
 
-func (a *Assignment) ReleaseCapacity(capacity float64) {
+func (a *Assignment) SubtractFromCurrentCapacity(capacity float64) {
 	a.CurrentWeightCapacity = a.CurrentWeightCapacity - capacity
 }

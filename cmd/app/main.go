@@ -27,7 +27,9 @@ type App struct {
 }
 
 func main() {
-	// TODO split in small functions
+	//TODO split in small functions
+	//TODO add config
+
 	app := NewApp()
 	db, err := NewDB()
 	if err != nil {
