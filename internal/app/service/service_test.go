@@ -78,4 +78,38 @@ func TestGetOrdersIntegration(t *testing.T) {
 	assert.Len(t, orders, 1)
 }
 
+func TestCreateAssignmentIntegration(t *testing.T) {
+	order := &domain.Order{
+		Latitude:     45,
+		Longitude:    45,
+		Weight:       500,
+		Observations: "test",
+	}
+
+	assignment := &domain.Assignment{
+		Date:                  "2024-08-05",
+		Plate:                 "test",
+		MaxWeightCapacity:     1000,
+		CurrentWeightCapacity: 500,
+		Orders:                []*domain.Order{order},
+	}
+
+	id, err := service.CreateAssigment(assignment)
+
+	assert.NoError(t, err)
+	assert.NotZero(t, id)
+
+	id, err = service.CreateAssigment(assignment)
+
+	assert.Error(t, err)
+}
+
+func TestGetAssigmentIntegration(t *testing.T) {
+	_, err := service.GetAssignmentByPlateAndDate("test", "2024-08-05")
+	assert.NoError(t, err)
+
+	_, err = service.GetAssignmentByPlateAndDate("test2", "2024-08-05")
+	assert.Error(t, err)
+}
+
 //TODO: test other services
